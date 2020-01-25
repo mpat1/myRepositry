@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Renovation Project</title>
+    <style>
+
+body{
+margin-top:50px;
+margin-left:200px;
+font-family:arial;
+background-image:url(pic4.png);
+background-repeat:no-repeat;
+background-position:700px 160px;
+}
+
+h1{
+font-size:40px;
+color:#9C605F;
+}
+
+
+fieldset{
+margin-right:500px;
+margin-top:20px;
+margin-bottom:20px;
+}
+
+input[type=submit] {
+  border: none;
+  outline: none;
+  display: block;
+  line-height: 30px;
+  width: 160px;
+  text-align: center;
+  font-size: 13px;
+  color:#FFFFFF;
+  background-color:#906668;
+  cursor:pointer;
+}
+
+input[type=submit]:hover{
+  opacity:0.7;
+}
+</style>
+<script>
+function loadFile_changeHandler(e){
+    var files = e.target.files;
+    var fileData = "";
+    for(var i = 0; i < files.length; i++){
+        var fileVal = files[i];
+        fileData +=
+            'ファイル名：' + escape(fileVal.name) + '<br>' +
+            'MIMEタイプ：' + fileVal.type + '<br>'<hr>';
+        }
+    $('#info').innerHTML = fileData;
+}
+ 
+function $(id) {
+    return document.querySelector(id);
+}
+</script>
+</head>
+
+<body>
+
+<h1>My Renovation Project</h1>
+<form class="contact-form" action="xxx.php" method="post">
+  <p>お客様情報とリフォームのご希望内容を入力して下さい。<br>
+     *は必須項目です。</p>
+
+    <p><label>[1] お名前：<input type="text" name="name" size="25" required autofocus> *</label></p>
+    <p><label>[2] 電話番号：<input type="tel" name="tel" autocomplete="on"  size="25" required> *</label></p>
+    <p><label>[3] emailアドレス：<input type="email" name="email" size="25" required> *</label></p>
+    <p><label>[4] リフォーム内容：<br><textarea name="comment" placeholder="リフォーム内容/改善点など
+・納期
+・ご予算
+・その他" cols="50" rows="10" ></textarea></label></p>
+
+    <label for="upfile">リフォームしたい場所の写真やご希望のリフォームの<br>アイデア写真がありましたら、こちらからアップロードして下さい。<br></label>
+    <input type="file" id="loadFile" name="upfile" accept="image/png, image/jpeg">
+    
+
+
+    <p><label>[5] 希望コンサルティング日：<input type="date" name="date schedule"></input></label></p>
+    
+ 　 <p><label>[6] 希望コンサルティング時間：
+ 
+
+<input type="time" name="time schedule" list="data1">
+
+<datalist id="data1">
+<option value="10:00"></option>
+<option value="11:00"></option>
+<option value="13:00"></option>
+<option value="14:00"></option>
+<option value="15:00"></option>
+</datalist>
+</label></p>
+
+
+
+    <fieldset>
+    <legend>[7] ご希望の連絡手段</legend>
+    <p><label><input type="radio" name="source" value="tel">電話</label></p>
+    <p><label><input type="radio" name="source" value="email">email</label></p>
+    </fieldset>
+
+    <fieldset>
+    <legend>[8] 今回こちらへお問い合わせ頂いた経緯 (※複数可)</legend>
+    <p><label><input type="checkbox" name="source" value="friend">知人から聞いた</label></p>
+    <p><label><input type="checkbox" name="source" value="web">WEB広告を見た</label></p>
+    <p><label><input type="checkbox" name="source" value="search">検索エンジン</label></p>
+    <p><label><input type="checkbox" name="source" value="other">その他</label></p>
+    </fieldset>
+
+
+
+    <p><input type="submit" value="送信する"></p>
+
+
+</form>
+
+</body>
+</html>
